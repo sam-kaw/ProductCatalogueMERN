@@ -18,13 +18,14 @@ export class ProductService {
     return this.http.get(`${this.uri}/products/${id}`);
   }
 
-  addProduct(name, description, price, quantity, category) {
+  addProduct(name, description, price, quantity, category,skuNumber) {
     const product = {
       name: name,
       description: description,
       price: price,
       quantity: quantity,
-      category: category
+      category: category,
+      skuNumber: skuNumber
     };
     return this.http.post(`${this.uri}/products/add`, product);
   }
@@ -38,5 +39,16 @@ export class ProductService {
       category: category
     };
     return this.http.post(`${this.uri}/products/update/${id}`, product);
+  }
+
+  searchrPoduct(id, name, description, price, quantity, category) {
+    const product = {
+      name: name,
+      description: description,
+      price: price,
+      quantity: quantity,
+      category: category
+    };
+    return this.http.post(`${this.uri}/products/search/${id}`, product);
   }
 }

@@ -13,7 +13,7 @@ import {ProductService} from '../../product.service';
 export class ListComponent implements OnInit {
 
   products: Product[];
-  displayedColumns: string [] = ['name', 'description', 'price', 'quantity', 'category', 'actions'];
+  displayedColumns: string [] = ['name', 'description', 'price', 'quantity', 'category', 'skuNumber', 'actions'];
 
   constructor(private productService : ProductService, private router: Router) { }
 

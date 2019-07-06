@@ -1,35 +1,24 @@
 <div>
   <mat-card>
-    <!-- Header -->
-    <div>
-      <h1>Search Product</h1>
-    </div>
-    <!-- Header -->
-
+    <section class="mat-typography">
+      <h3>Search Product</h3>
+    </section>
+    <mat-divider></mat-divider>
     <br>
-
-    <br>
-
-    <!-- Username Search Box -->
-    <div class="navbar-form">
-      <div class="form-group">
-        <input matInput name="searchByName" placeholder="search by..." ng-model="searchByName">
-      </div>
-      <br>
-      <button mat-raised-button color="accent">Name</button>
-    </div>
-    <br>
-    <!-- E-mail Search Box -->
-    <div class="navbar-form">
-      <div class="form-group">
-        <input matInput name="searchBySkuNumber" placeholder="search by..."
-          ng-model="searchBySkuNumber">
-      </div>
-      <br>
-      <button mat-raised-button color="accent">Sku Number</button>
-    </div>
+    <form [formGroup]="searchForm" class="search-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Name" formControlName="byName" #byName>
+      </mat-form-field>
+      <button type="submit"
+        (click)="searchProduct(name.value)"
+        [disabled]="searchForm.pristine || searchForm.invalid" mat-raised-button color="primary">Search</button>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Sku Number" formControlName="bySku" #bySku>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <button type="submit"
+        (click)="searchProduct(name.skuNumber)"
+        [disabled]="searchForm.pristine || searchForm.invalid" mat-raised-button color="primary">Search</button>
+    </form>
   </mat-card>
-
-  <!-- User Management Table -->
-
 </div>

@@ -4,5 +4,6 @@ export interface Product {
     description: String;
     price: Number;
     quantity: Number;
+    skuNumber: String;
     category: String;
 }

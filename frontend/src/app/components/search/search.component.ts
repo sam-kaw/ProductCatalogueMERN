@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {MatTableDataSource} from '@angular/material';
+
+import {Product} from '../../product.model';
 import {ProductService} from '../../product.service';
 
 @Component({
@@ -8,9 +12,23 @@ import {ProductService} from '../../product.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private productService : ProductService) { }
+  products: Product[];
+  displayedColumns: string [] = ['name', 'description', 'price', 'quantity', 'category', 'skuNumber', 'actions'];
+
+  constructor(private productService : ProductService, private router: Router) {}
 
   ngOnInit() {
+    this.searchProducts();
+  }
+
+  searchProducts() {
+    this.productService
+      .getProducts()
+      .subscribe((data: Product[]) => {
+        this.products = data;
+        console.log('Data requested ...');
+        console.log(this.products);
+      });
   }
 
 }

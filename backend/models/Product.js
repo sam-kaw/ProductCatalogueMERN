@@ -15,6 +15,9 @@ let Product = new Schema({
     quantity: {
         type: Number
     },
+    skuNumber: {
+        type: String
+    },
     category: {
         type: String
     }

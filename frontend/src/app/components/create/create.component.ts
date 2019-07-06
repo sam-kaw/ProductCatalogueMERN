@@ -18,12 +18,13 @@ export class CreateComponent implements OnInit {
       description: '',
       price: '',
       quantity: '',
-      category: ''
+      category: '',
+      skuNumber: ''
     });
   }
 
-  addProduct(name, description, price, quantity, category) {
-    this.productService.addProduct(name, description, price, quantity, category).subscribe(() => {
+  addProduct(name, description, price, quantity, category, skuNumber) {
+    this.productService.addProduct(name, description, price, quantity, category, skuNumber).subscribe(() => {
       this.router.navigate(['/list']);
     });
   }
