@@ -3,13 +3,9 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 let Category = new Schema({
-    category: {
+    name: {
         type: String
     }
 });
 
-let ProductCategory = new Schema({
-    producyCategory: [Category]
-});
-
-export default mongoose.model('ProductCategory', ProductCategory);
+export default mongoose.model('Category', Category);

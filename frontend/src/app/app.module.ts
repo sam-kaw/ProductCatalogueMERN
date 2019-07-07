@@ -14,13 +14,21 @@ import { EditComponent } from './components/edit/edit.component';
 import { SearchComponent } from './components/search/search.component';
 
 import {ProductService} from './product.service';
+import {CategoryService} from './category.service';
+
+import { CreateCategoryComponent } from './components/category/create-category/create-category.component';
+import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
+import { ListCategoryComponent } from './components/category/list-category/list-category.component';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent},
   { path: 'edit/:id', component: EditComponent},
   { path: 'list', component: ListComponent},
   { path: 'search', component: SearchComponent},
-  { path: '', redirectTo: 'list', pathMatch: 'full'}
+  { path: '', redirectTo: 'list', pathMatch: 'full'},
+  { path: 'create-category', component: CreateCategoryComponent},
+  { path: 'edit-category/:id', component: EditCategoryComponent},
+  { path: 'list-category', component: ListCategoryComponent},
 ];
 
 @NgModule({
@@ -29,7 +37,10 @@ const routes: Routes = [
     ListComponent,
     CreateComponent,
     EditComponent,
-    SearchComponent
+    SearchComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    ListCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +61,7 @@ const routes: Routes = [
     MatSnackBarModule,
     MatMenuModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

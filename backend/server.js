@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import Product from './models/Product';
+import Category from './models/Category';
 
 const app = express();
 const router = express.Router();
@@ -65,6 +66,52 @@ router.route('/products/update/:id').post((req, res) => {
                 res.status(400).send('Update failed');
             });
             console.log('Product Added' + product);
+        }
+    });
+});
+
+router.route('/categories').get((req, res) => {
+    Category.find((err, categories) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(categories);
+    });
+});
+
+router.route('/categories/:id').get((req, res) => {
+    Category.findById(req.params.id, (err, category) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(category);
+    });
+});
+
+router.route('/categories/add').post((req, res) => {
+    let category = new Category(req.body);
+    category.save()
+        .then(category => {
+            res.status(200).json({'category': 'Added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
+});
+
+router.route('/categories/update/:id').post((req, res) => {
+    Category.findById(req.params.id, (err, category) => {
+        if (!category)
+            return next(new Error('Could not load document'));
+        else {
+            category.name = req.body.name;
+
+            category.save().then(category => {
+                res.json('Update done');
+            }).catch(err => {
+                res.status(400).send('Update failed');
+            });
+            console.log('Category Added' + category);
         }
     });
 });
