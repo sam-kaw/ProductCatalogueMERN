@@ -26,7 +26,7 @@ export class EditCategoryComponent implements OnInit {
       catName: ['', Validators.required]
     });
   }
-
+  
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.id;

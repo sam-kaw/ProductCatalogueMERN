@@ -13,7 +13,7 @@ import {CategoryService} from '../../../category.service';
 export class ListCategoryComponent implements OnInit {
 
   categories: Category[];
-  displayedColumns: string [] = ['catName'];
+  displayedColumns: string [] = ['catName', 'actions'];
 
   constructor(private categoryService : CategoryService, private router: Router) { }
 
@@ -31,8 +31,8 @@ export class ListCategoryComponent implements OnInit {
       });
   }
 
-  editCategories(id) {
-    this.router.navigate([`/edit/${id}`]);
+  editCategory(id) {
+    this.router.navigate([`/edit-category/${id}`]);
   }
 
 }

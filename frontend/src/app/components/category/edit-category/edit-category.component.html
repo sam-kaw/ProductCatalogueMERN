@@ -1,19 +1,19 @@
 <div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Category</h3>
+    </section>
+    <mat-divider></mat-divider>
     <br>
-    <mat-card>
-      <section class="mat-typography">
-        <h3>Update Category</h3>
-      </section>
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Category Name" formControlName="catName" #catName>
+      </mat-form-field>
       <mat-divider></mat-divider>
-      <br>
-      <form [formGroup]="updateForm" class="edit-form">
-        <mat-form-field class="field-full-width">
-          <input matInput placeholder="Category Name" formControlName="catName" #catName>
-        </mat-form-field>
-        <mat-divider></mat-divider>
-        <br><br>
-        <button mat-raised-button color="accent" routerLink="/list-category">Back</button>&nbsp;
-        <button type="submit" (click)="updateCategory(name.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
-      </form>
-    </mat-card>
-  </div>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list-category">Back</button>&nbsp;
+      <button type="submit" (click)="updateCategory(catName.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
