@@ -17,12 +17,12 @@ export class EditCategoryComponent implements OnInit {
 
   id: String;
   category: any = {};
-  updateForm: FormGroup;
+  updateCatForm: FormGroup;
 
   constructor(private categoryService : CategoryService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { }
 
   createForm() {
-    this.updateForm = this.fb.group({
+    this.updateCatForm = this.fb.group({
       catName: ['', Validators.required]
     });
   }
@@ -32,7 +32,7 @@ export class EditCategoryComponent implements OnInit {
       this.id = params.id;
       this.categoryService.getCategoryById(this.id).subscribe(res => {
         this.category = res;
-        this.updateForm.get('catName').setValue(this.category.catName);
+        this.updateCatForm.get('catName').setValue(this.category.catName);
       });
     });
   }
