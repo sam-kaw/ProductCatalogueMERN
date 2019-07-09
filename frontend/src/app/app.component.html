@@ -10,12 +10,10 @@
   
       <mat-menu #menu="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="subMenuPro">
-          <mat-icon>settings</mat-icon>
           <span>Product</span>
         </button>
         
         <button mat-menu-item [matMenuTriggerFor]="subMenuCat">
-          <mat-icon>voicemail</mat-icon>
           <span>Category</span>
         </button>
       </mat-menu>
@@ -33,18 +31,6 @@
   
     </mat-card-content>
     </mat-card>
-
-    <!--div class = "tp-container">
-          <button mat-raised-button color="primary" routerLink="/search">Search Product</button>
-          <mat-form-field appearance = "standard">
-             <input matInput placeholder = "By Name">
-             <mat-hint>Sample Hint: Fanta</mat-hint>
-          </mat-form-field>
-          <mat-form-field appearance = "standard">
-              <input matInput placeholder = "By SKU Number">
-              <mat-hint>Sample Hint: A4uGEWWE</mat-hint>
-           </mat-form-field>
-       </div>-->
 <div>
   <router-outlet></router-outlet>
 </div>
