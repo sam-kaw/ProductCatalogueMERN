@@ -22,3 +22,23 @@ After this go to the frontend folder and run 'npm install'. After all the packag
 
 ** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
 ℹ ｢wdm｣: Compiled successfully.
+
+********************************************************************************************************************
+
+TypeScript used, though I have used Babel for backward compatible version of JavaScript.
+
+I have used Angular CLI for this project ( https://cli.angular.io/  ) and used below commands:
+
+
+npm install -g @angular/cli
+
+ng new frontend                                  [To create an application that already works, right out of the box]
+
+ng serve --open                                   [Automatically opens the application in the browser]
+
+ng add @angular/material                    [Material Design components for Angular]
+
+ng g c components/<component-name> [For creating components]
+
+ng g s <service-name>                       [To add service class]
+
